@@ -32,6 +32,7 @@ app.add_middleware(
 )
 
 load_dotenv()
+COOKIES_FILE = "cookies.txt"
 
 PUBLIC_URL = os.getenv("PUBLIC_URL")
 IG_ID = os.getenv("IG_ID")
@@ -117,6 +118,7 @@ async def download_video(url: str = Form(...)):
         "outtmpl": output_path,
         "merge_output_format": "mp4",
         "ffmpeg_location": FFMPEG_PATH,
+        "cookiefile": COOKIES_FILE,  # Add this line
         "noplaylist": True,
     }
 

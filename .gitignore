@@ -17,4 +17,4 @@ videos.db
 # OS/editor cruft
 .DS_Store
 .vscode/
-.idea/
+.idea/cookies.txt
