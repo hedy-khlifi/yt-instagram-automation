@@ -4,5 +4,5 @@ python-multipart
 apscheduler
 python-dotenv
 requests
-yt-dlp
+yt-dlp[default]>=2026.1.1
 cloudinary
