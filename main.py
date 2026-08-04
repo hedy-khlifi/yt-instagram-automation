@@ -114,7 +114,7 @@ async def download_video(url: str = Form(...)):
     output_path = os.path.join(DOWNLOAD_DIR, f"{video_id}.%(ext)s")
 
     ydl_opts = {
-        "format": "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best",
+        "format": "bv*+ba/b",
         "outtmpl": output_path,
         "merge_output_format": "mp4",
         "ffmpeg_location": FFMPEG_PATH,
