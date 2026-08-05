@@ -6,9 +6,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Deno (JS runtime yt-dlp uses for full format extraction)
-RUN curl -fsSL https://deno.land/install.sh | sh
-ENV PATH="/root/.deno/bin:${PATH}"
+# Install Deno as a static binary directly onto the standard PATH
+RUN curl -fsSL https://github.com/denoland/deno/releases/latest/download/deno-x86_64-unknown-linux-gnu.zip -o deno.zip \
+    && unzip deno.zip -d /usr/local/bin \
+    && rm deno.zip \
+    && chmod +x /usr/local/bin/deno
 
 WORKDIR /app
 COPY requirements.txt .
