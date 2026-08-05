@@ -120,8 +120,8 @@ async def download_video(url: str = Form(...)):
     "ffmpeg_location": FFMPEG_PATH,
     "cookiefile": COOKIES_FILE,
     "noplaylist": True,
-    "extractor_args": {
-    "youtube": {"formats": ["missing_pot"]}
+ "extractor_args": {
+    "youtube": {"formats": ["missing_pot"], "player_client": ["tv"]}
 }
 }
 
