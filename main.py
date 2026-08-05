@@ -114,13 +114,16 @@ async def download_video(url: str = Form(...)):
     output_path = os.path.join(DOWNLOAD_DIR, f"{video_id}.%(ext)s")
 
     ydl_opts = {
-        "format": "bv*+ba/b",
-        "outtmpl": output_path,
-        "merge_output_format": "mp4",
-        "ffmpeg_location": FFMPEG_PATH,
-        "cookiefile": COOKIES_FILE,  # Add this line
-        "noplaylist": True,
-    }
+    "format": "bv*+ba/b",
+    "outtmpl": output_path,
+    "merge_output_format": "mp4",
+    "ffmpeg_location": FFMPEG_PATH,
+    "cookiefile": COOKIES_FILE,
+    "noplaylist": True,
+    "extractor_args": {
+        "youtube": {"player_client": ["tv"], "remote_components": ["ejs:github"]}
+    },
+}
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
