@@ -118,11 +118,14 @@ async def download_video(url: str = Form(...)):
     "outtmpl": output_path,
     "merge_output_format": "mp4",
     "ffmpeg_location": FFMPEG_PATH,
-    "cookiefile": COOKIES_FILE,
     "noplaylist": True,
- "extractor_args": {
-    "youtube": {"formats": ["missing_pot"], "player_client": ["tv"]}
-}
+    "extractor_args": {
+        "youtube": {
+            "player_client": ["tv"],
+            "formats": ["missing_pot"],
+        },
+        "youtubepot-bgutilhttp": {"base_url": ["http://127.0.0.1:4416"]}
+    },
 }
 
     try:
