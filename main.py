@@ -121,8 +121,8 @@ async def download_video(url: str = Form(...)):
     "cookiefile": COOKIES_FILE,
     "noplaylist": True,
     "extractor_args": {
-        "youtube": {"player_client": ["tv"], "remote_components": ["ejs:github"]}
-    },
+    "youtube": {"formats": ["missing_pot"]}
+}
 }
 
     try:
